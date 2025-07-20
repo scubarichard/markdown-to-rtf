@@ -5,8 +5,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = await req.json(); // ✅ FIX: parse body manually
-    const { markdown } = body;
+    const { markdown } = req.body;
 
     if (!markdown) {
       return res.status(400).json({ error: 'Missing markdown in body' });
